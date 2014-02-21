@@ -288,7 +288,7 @@ Full-Width Styles
   display: block;
   position: absolute;
   top:0;
-  right: 160px;
+  right: 190px;
   padding: 10px 50px 10px 10px;
   color: #fff;
   background: #0090ff no-repeat 95% 50%;
@@ -297,7 +297,6 @@ Full-Width Styles
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
 }
-
 
 #example_banner {
   display: block;
@@ -317,7 +316,7 @@ Full-Width Styles
   display: block;
   position: absolute;
   top:0;
-  right: 470px;
+  right: 443px;
   padding: 10px 50px 10px 10px;
   color: #fff;
   background: #0090ff no-repeat 95% 50%;
