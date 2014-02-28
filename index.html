@@ -31,38 +31,37 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h3>
-<a name="description" class="anchor" href="#description"><span class="octicon octicon-link"></span></a>Description</h3>
+        <h1>
+<a name="examples" class="anchor" href="#examples"><span class="octicon octicon-link"></span></a>Examples</h1>
 
-<p><em>Surf</em> is an open source framework for connecting various data collection technologies (messaging, logging, applications, etc.) to <em>Amazon Kinesis</em>.</p>
+<ul>
+<li>Example 1 - Simple Setup</li>
+<li>Example 2 - Page Count </li>
+</ul><hr><h2>
+<a name="example-1--simple-set-up" class="anchor" href="#example-1--simple-set-up"><span class="octicon octicon-link"></span></a>Example 1 – Simple Set-up</h2>
 
-<p><img src="images/surf2_4.jpg" alt="Surf Picture"></p>
+<p>This example explores connectivity between on-premise data sources and cloud-based Kinesis applications.</p>
 
-<p><em>Surf</em> can be used as a server connecting several devices at once. Or it can be used as a library, providing an abstracted view of <em>Kinesis</em> API.
-Surf has a small run-time footprint and is easily extensible. We intend on keeping it up-to-date with emerging user requirements and active projects.  </p>
+<p><img src="images/surf2_4.jpg" alt="Example1 Picture"></p>
 
-<h3>
-<a name="why-open-source-iotm2m-with-aws" class="anchor" href="#why-open-source-iotm2m-with-aws"><span class="octicon octicon-link"></span></a>Why Open Source IoT/M2M with AWS?</h3>
-
-<p>Innovation in IoT/M2M space comes from two areas – <em>devices</em> and <em>applications</em>. The connectivity fabric, operations, scaling, application integration and other platform capabilities are critical for a functioning system, but not differentiating.</p>
-
-<p>Today such platform capabilities are commonly provided either by Telecoms or by purpose-built products. In either case, the platforms severely limit developer’s abilities to experiment, leverage open-source community, and scale-as-you-go.</p>
-
-<p>We believe that the combination of open-source frameworks and operational simplicity of AWS provides a powerful alternative to proprietary IoT/M2M platforms.</p>
-
-<p><img src="images/surf3_4.jpg" alt="AWS Picture"></p>
-
-<p><em>Surf</em> is our initial step towards open source IoT/M2M frameworks.  </p>
+<p>In this example the data source and the application are very simple – data source generates a stream of time-stamps, the application displays the time-stamps on a console.</p>
 
 <h3>
-<a name="capabilities" class="anchor" href="#capabilities"><span class="octicon octicon-link"></span></a>Capabilities</h3>
+<a name="surf-data-source" class="anchor" href="#surf-data-source"><span class="octicon octicon-link"></span></a>Surf Data Source</h3>
 
-<p>File tailer, HTTP, SDK</p>
+<blockquote>
+<p>The code for the data source can be found in file com.informatica.surf.sources.dummy.DummySource.java
+For this sample the data source generates time-stamps and streams them to Kinesis application:</p>
+</blockquote>
 
-<h3>
-<a name="example" class="anchor" href="#example"><span class="octicon octicon-link"></span></a>Example</h3>
+<p><code>public void read(VDSEventList readEvents) throws Exception {</code>
+<code>Thread.sleep(1000);</code>
+<code>Date d = new Date();</code>
+<code>byte []b = d.toString().getBytes();</code>
+<code>readEvents.addEvent(b, b.length, _headers);</code>
+<code>}</code></p>
 
-<p>TBD</p>
+<p>Generally, a Surf user only needs to configure a data source like File-tailer, HTTP, or MQTT. However, the user may also easily develop new data sources as needed.</p>
       </section>
     </div>
 
